@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nagad Tracker</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body onload="initDate()">
+  <div class="container">
+    <h1>NAGAD TRANSACTION TRACKER</h1>
+    <h1>Created By Eth_Rohan</h1>
+    <label for="name">দোকানের নাম:</label>
+    <select id="name">
+        <option value="ELIASN ENTERPRISE">ELIASN ENTERPRISE</option>
+        <option value="MA TELECOME AND HARDWERE">MA TELECOME AND HARDWERE</option>
+        <option value="SATATA LIVERERY AND GIVE CORNER">SATATA LIVERERY AND GIVE CORNER</option>
+        <option value="HASAN STORE">HASAN STORE</option>
+        <option value="L.P.S TELECOME">L.P.S TELECOME</option>
+        <option value="TASMIA STORE">TASMIA STORE</option>
+        <option value="EKRAM AND BROTHERS">EKRAM AND BROTHERS</option>
+        <option value="RODRO MEDICAL HALL">RODRO MEDICAL HALL</option>
+        <option value="SONALI HOTEL">SONALI HOTEL</option>
+        <option value="M.S MONJU MEDICAL HALL">M.S MONJU MEDICAL HALL</option>
+        <option value="TAJUL STORE">TAJUL STORE</option>
+        <option value="ABUL HOSSEN STORE">ABUL HOSSEN STORE</option>
+        <option value="MONSOR STORE">MONSOR STORE</option>
+        <option value="BISMILLAH STORE">BISMILLAH STORE</option>
+        <option value="ARMAN ELECTRONICS">ARMAN ELECTRONICS</option>
+        <option value="NABARUB ENTERPRISE">NABARUB ENTERPRISE</option>
+        <option value="SELIM STORE">SELIM STORE</option>
+        <option value="KAMAL STORE">KAMAL STORE</option>
+        <option value="SATATA ENTERPRISE">SATATA ENTERPRISE</option>
+        <option value="F.M ENTERPRISE">F.M ENTERPRISE</option>
+        <option value="RAFA STORE">RAFA STORE</option>
+        <option value="MOHIN STORE">MOHIN STORE</option>
+        <option value="ABDUL KARIM STORE">ABDUL KARIM STORE</option>
+        <option value="MAHIM STORE">MAHIM STORE</option>
+        <option value="S.A DEPARTMENT STORE">S.A DEPARTMENT STORE</option>
+        <option value="M.S TANBIR FARMECY">M.S TANBIR FARMECY</option>
+        <option value="SEBA COOLING CORNER">SEBA COOLING CORNER</option>
+        <option value="TANBIR STORE AND COOLING CORNER">TANBIR STORE AND COOLING CORNER</option>
+        <option value="VAI VAI TELECOM">VAI VAI TELECOM</option>
+        <option value="IKBAL STORE">IKBAL STORE</option>
+        <option value="MA STORE">MA STORE</option>
+        <option value="M.S MOSHAROF ENTERPRISE">M.S MOSHAROF ENTERPRISE</option>
+        <option value="MODINA ENTERPISE">MODINA ENTERPISE</option>
+        <option value="AL MOCCA STORE">AL MOCCA STORE</option>
+        <option value="M.S ALI STORE">M.S ALI STORE</option>
+        <option value="ASHIK TELECOME">ASHIK TELECOME</option>
+        <option value="SOHEL STORE">SOHEL STORE</option>
+        <option value="NAZIM AND BROTHERS">NAZIM AND BROTHERS</option>
+        <option value="JAFOR STORE">JAFOR STORE</option>
+        <option value="SITAKUNDA OSHUDALOI">SITAKUNDA OSHUDALOI</option>
+        <option value="DEB TELECOME">DEB TELECOME</option>
+        <option value="HOTEL BORTA BARI">HOTEL BORTA BARI</option>
+    </select>
+
+    <label for="date">তারিখ:</label>
+    <input type="text" id="date" readonly />
+
+
+    <label for="type">TYPE:</label>
+    <select id="type">
+      <option value="Cash">Cash</option>
+      <option value="B2B">B2B</option>
+    </select>
+
+    <label for="amount">AMOUNT:</label>
+    <input type="number" id="amount" />
+
+    <label for="search">SEARCH BY NAME:</label>
+    <input type="text" id="search" onkeyup="filterTable()" placeholder="Search..." />
+
+    <button onclick="addEntry()">Add Entry</button>
+    <button onclick="printPage()">Print</button>
+    <button onclick="downloadPDF()">Export PDF</button>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button onclick="clearTable()">Clear All</button>
+
+    <div class="summary">
+      <div>Total Cash: <span id="totalCash">0</span></div>
+      <div>Total B2B: <span id="totalB2B">0</span></div>
+      <div>Total Amount: <span id="totalAll">0</span></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="dataTable"></tbody>
+    </table>
+
+    <div class="footer">All rights reserved © 2025</div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
